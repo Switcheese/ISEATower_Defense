@@ -1,0 +1,8 @@
+NUM,Weapon,ATK,ATKSpeed,BulletNum,BulletSpeed
+1,NormalGun,10,0.2,¡Ä,20
+2,DoubleGun,20,0.2,80,20
+3,MachineGun,9,0.1,300,30
+4,LaserGun,16,0.1,100,¡Ä
+5,EnergyCannon,200,2,10,¡Ä
+6,HommingMissle,50,1,20,3
+7,GranadeCannon,70,0.8,20,10
