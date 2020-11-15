@@ -4,23 +4,15 @@ using UnityEngine;
 
 public class bullet : MonoBehaviour
 {
-    //public GameObject firePos;
-    //public Rigidbody2D m_rigidbody;
-    //// Start is called before the first frame update
-    //private void OnTriggerEnter2D(Collider2D collision)
-    //{
-    //    this.gameObject.SetActive(false);
-    //    this.gameObject.transform.position = Vector3.zero;
-    //}
-    //private void FixedUpdate()
-    //{
-    //    m_rigidbody.AddForce(this.transform.forward*Time.deltaTime,ForceMode2D.Impulse);
-    //    Debug.Log(m_rigidbody.velocity);
-    //}
+    public GameObject BulletObject;
+
     [Header("가속도")]
     public float thrust;
 
-    [HideInInspector]public Rigidbody2D rb;
+    public SpriteRenderer BulletSprite;
+
+    [HideInInspector]
+    public Rigidbody2D rb;
 
     void Start()
     {

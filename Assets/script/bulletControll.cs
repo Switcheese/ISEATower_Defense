@@ -8,14 +8,16 @@ public class bulletControll : MonoBehaviour
     public float waitforsecond_Time;
     [Space()]
 
+    public bullet bulletObject;
     public GameObject bulletObj;
+
     public GameObject firePos;
     public int bulletCount;
     public int usingbulletCount;
     List<GameObject> bulletSit;
 
     // Start is called before the first frame update
-    void Start()
+    public void SetBullets()
     {
         usingbulletCount = 0;
         bulletSit = new List<GameObject>();
@@ -27,17 +29,30 @@ public class bulletControll : MonoBehaviour
             }
             else
             {
-                GameObject f_bullet = Instantiate<GameObject>(bulletObj, this.transform);
+                GameObject f_bullet = Instantiate<GameObject>(bulletObject.BulletObject, this.transform);
                 f_bullet.SetActive(false);
 
                 bulletSit.Add(f_bullet);
             }
         }
 
-        StartCoroutine(fire());
+        //StartCoroutine(fire());
     }
 
-    IEnumerator fire()
+    public void Fire()
+    {
+        for (int i = 0; i < bulletSit.Count; i++)
+        {
+            if (bulletSit[i].activeSelf == false)
+            {
+                bulletSit[i].transform.position = firePos.transform.position;
+                bulletSit[i].SetActive(true);
+                bulletSit[i].transform.right = firePos.transform.right;
+                break;
+            }
+        }
+    }
+    public IEnumerator fire()
     {
         yield return new WaitForSeconds(1.5f);
 
@@ -49,7 +64,7 @@ public class bulletControll : MonoBehaviour
                 {
                     bulletSit[i].transform.position = firePos.transform.position;
                     bulletSit[i].SetActive(true);
-                    bulletSit[i].transform.right=firePos.transform.right;
+                    bulletSit[i].transform.right = firePos.transform.right;
                     break;
                 }
 

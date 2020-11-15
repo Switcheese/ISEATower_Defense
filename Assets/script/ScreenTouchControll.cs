@@ -6,7 +6,7 @@ using UnityEngine.EventSystems;
 public class ScreenTouchControll : MonoBehaviour,IPointerDownHandler,IDragHandler
 {
     private RectTransform rectTransform;
-
+    public bulletControll m_BulletControll;
     //public GameObject PointerObj;
     public Vector3 position;
 
@@ -32,7 +32,7 @@ public class ScreenTouchControll : MonoBehaviour,IPointerDownHandler,IDragHandle
         //position = eventData.position;
 
         position.z = -1;
-
+        m_BulletControll.Fire();
        // PointerObj.transform.position = position;
     }
 }
